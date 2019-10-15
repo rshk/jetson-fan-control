@@ -1,5 +1,7 @@
 # NVIDIA Jetson fan control
 
+![](/.screenshot.png)
+
 Automatically control the fan speed on a Jetson board.
 
 Tested on a Jetson Nano, but should work on other boards as well.
