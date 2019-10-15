@@ -1,0 +1,13 @@
+[Unit]
+Description=Jetson fan control
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -u /usr/local/bin/jetson_fan_control.py
+User=root
+StandardOutput=journal+console
+Restart=always
+Environment=FAN_CONTROL_MIN_TEMP=50 FAN_CONTROL_MAX_TEMP=70 FAN_CONTROL_EXCLUDE_ZONES=thermal_zone4
+
+[Install]
+WantedBy=multi-user.target
