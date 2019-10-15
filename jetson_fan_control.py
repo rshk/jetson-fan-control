@@ -3,8 +3,8 @@ import os
 import sys
 import time
 from collections import defaultdict
-from datetime import datetime
 from queue import deque
+
 
 THERMAL_PATH = '/sys/devices/virtual/thermal'
 FAN_PWM_TARGET_PATH = '/sys/devices/pwm-fan/target_pwm'
@@ -147,9 +147,8 @@ def main():
                           fan_speed=fan_speed))
         else:
             # Summary, can be sent to a log file
-            print('{} max_temp={} fan_speed={}'
-                  .format(datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'),
-                          max_temp, fan_speed),
+            print('temperature={} fan_speed={}'
+                  .format(max_temp, fan_speed),
                   flush=True)
 
         set_fan_speed(fan_speed)
